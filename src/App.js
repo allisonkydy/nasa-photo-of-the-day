@@ -5,9 +5,8 @@ import Header from "./components/Header";
 import Image from "./components/Image";
 import Description from "./components/Description";
 
-// https://api.nasa.gov/planetary/apod?api_key=D8oIlefuvBfmqihhqjyaU4JKZTqn5qWEXEf6jPmU
 function App() {
-  const [imgURL, setImgURL] = useState('');
+  const [imgURL, setImgURL] = useState();
   const [date, setDate] = useState();
   const [title, setTitle] = useState();
   const [expl, setExpl] = useState();
@@ -16,7 +15,11 @@ function App() {
   useEffect(() => {
     axios.get('https://api.nasa.gov/planetary/apod?api_key=D8oIlefuvBfmqihhqjyaU4JKZTqn5qWEXEf6jPmU')
       .then(response => {
-        console.log(response);
+        const apod = response.data
+        setImgURL(apod.url);
+        setDate(apod.date);
+        setTitle(apod.title);
+        setExpl(apod.explanation);
       })
       .catch(err => console.log(err))
   }, [])
@@ -24,8 +27,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Image />
-      <Description />
+      <Image url={imgURL}/>
+      <Description date={date} title={title} expl={expl}/>
     </div>
   );
 }
