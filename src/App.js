@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import Header from "./components/Header";
-import Image from "./components/Image";
-import DatePicker from "./components/DatePicker";
+import ApodHeader from "./components/Header";
+import ApodImage from "./components/Image";
+import ApodDatePicker from "./components/DatePicker";
 import Description from "./components/Description";
 
 function App() {
@@ -32,9 +32,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Image url={apodData.url}/>
-      <DatePicker pickerDate={pickerDate} handleDates={handleDates}/>
+      <ApodHeader />
+      <ApodImage url={apodData.url}/>
+      <ApodDatePicker pickerDate={pickerDate} handleDates={handleDates}/>
       <Description title={apodData.title} expl={apodData.explanation}/>
     </div>
   );

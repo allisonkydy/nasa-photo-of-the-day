@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function Date(props) {
+function ApodDatePicker(props) {
    if (!props.pickerDate) return <h3>Loading...</h3>;
 
    return (
@@ -18,4 +18,4 @@ function Date(props) {
    )
 }
 
-export default Date;
+export default ApodDatePicker;

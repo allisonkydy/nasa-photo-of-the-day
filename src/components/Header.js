@@ -1,8 +1,9 @@
 import React from 'react';
+import { Container, Header, Image } from 'semantic-ui-react';
 
 import logo from '../assets/nasa-logo.png';
 
-function Header() {
+function ApodHeader() {
    return (
       <div className="header">
          <img src={logo} alt='NASA logo' />
@@ -11,4 +12,4 @@ function Header() {
    );
 }
 
-export default Header;
+export default ApodHeader;

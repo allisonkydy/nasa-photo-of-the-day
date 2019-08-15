@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Image(props) {
+function ApodImage(props) {
    return (
       <div>
          <img src={props.url} alt='' />
@@ -8,4 +8,4 @@ function Image(props) {
    )
 }
 
-export default Image;
+export default ApodImage;
