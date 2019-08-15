@@ -7,16 +7,14 @@ import DatePicker from "./components/DatePicker";
 import Description from "./components/Description";
 
 function App() {
-  const [imgURL, setImgURL] = useState();
   const [date, setDate] = useState(formatDate(new Date().toLocaleDateString()));
   const [pickerDate, setPickerDate] = useState(new Date());
-  const [title, setTitle] = useState();
-  const [expl, setExpl] = useState();
+  const [apodData, setApodData] = useState([]);
 
+  // MM/DD/YYYY --> YYYY-MM-DD
   function formatDate(dateStr) {
     let dateArray = dateStr.split('/');
-    dateArray.unshift(dateArray.pop())
-    return dateArray.join('-');
+    return `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
   }
 
   function handleDates(date) {
@@ -27,10 +25,7 @@ function App() {
   useEffect(() => {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
       .then(response => {
-        const apod = response.data
-        setImgURL(apod.url);
-        setTitle(apod.title);
-        setExpl(apod.explanation);
+        setApodData(response.data)
       })
       .catch(err => console.log(err))
   }, [date])
@@ -38,9 +33,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Image url={imgURL}/>
+      <Image url={apodData.url}/>
       <DatePicker pickerDate={pickerDate} handleDates={handleDates}/>
-      <Description title={title} expl={expl}/>
+      <Description title={apodData.title} expl={apodData.explanation}/>
     </div>
   );
 }
