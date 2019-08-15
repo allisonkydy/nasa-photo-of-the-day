@@ -33,7 +33,7 @@ function App() {
   }, [date])
 
   const App = styled.div`
-    background-image: linear-gradient(#0c0f1e, #b3611d);
+    background-image: radial-gradient(#bf6215, #0c0f1e);
   `
 
   const Container = styled.div`
