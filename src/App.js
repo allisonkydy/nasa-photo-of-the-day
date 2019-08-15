@@ -19,7 +19,7 @@ function App() {
     return dateArray.join('-');
   }
 
-  const handleDates = (date) => {
+  function handleDates(date) {
     setPickerDate(date);
     setDate(formatDate(date.toLocaleDateString()));
   }
