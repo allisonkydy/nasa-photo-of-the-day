@@ -1,0 +1,11 @@
+.react-datepicker__header {
+   background-color: #c6bcb8;
+}
+
+.react-datepicker__navigation--next {
+   border-left-color: #717171;
+}
+
+.react-datepicker__navigation--previous {
+   border-right-color: #717171;
+}

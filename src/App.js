@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import axios from "axios";
 import ApodHeader from "./components/Header";
 import ApodImage from "./components/Image";
 import ApodDatePicker from "./components/DatePicker";
 import Description from "./components/Description";
+import styled from 'styled-components';
+
+import "./App.css";
 
 function App() {
   const [date, setDate] = useState(formatDate(new Date().toLocaleDateString()));
@@ -30,13 +32,26 @@ function App() {
       .catch(err => console.log(err))
   }, [date])
 
+  const App = styled.div`
+    background-image: linear-gradient(#0c0f1e, #b3611d);
+  `
+
+  const Container = styled.div`
+    padding: 10px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `
+
   return (
-    <div className="App">
+    <App>
       <ApodHeader />
       <ApodImage url={apodData.url}/>
-      <ApodDatePicker pickerDate={pickerDate} handleDates={handleDates}/>
-      <Description title={apodData.title} expl={apodData.explanation}/>
-    </div>
+      <Container>
+        <ApodDatePicker pickerDate={pickerDate} handleDates={handleDates}/>
+        <Description title={apodData.title} expl={apodData.explanation}/>
+      </Container>
+    </App>
   );
 }
 

@@ -5,7 +5,6 @@ import logo from '../assets/nasa-logo.png';
 
 function ApodHeader() {
    const Container = styled.div`
-      margin: 20px auto 30px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -16,7 +15,9 @@ function ApodHeader() {
    `
 
    const Header = styled.h1`
-      text-align: center;      
+      text-align: center;
+      font-family: 'Lexend Mega', sans-serif;
+      color: #eaeaea;      
    `
 
    return (
