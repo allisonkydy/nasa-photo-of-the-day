@@ -1,10 +1,8 @@
 import React from 'react';
-import Date from './Date';
 
 function Description(props) {
    return (
-      <div>
-         <Date date={props.date}/>
+      <div className="desc">
          <h2>{props.title}</h2>
          <p>{props.expl}</p>
       </div>
