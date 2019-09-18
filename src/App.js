@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ApodHeader from "./components/Header";
-import ApodImage from "./components/Image";
-import ApodDatePicker from "./components/DatePicker";
-import Description from "./components/Description";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ApodHeader from './components/Header';
+import ApodImage from './components/Image';
+import ApodDatePicker from './components/DatePicker';
+import Description from './components/Description';
 import styled from 'styled-components';
 
 import "./App.css";
@@ -25,7 +25,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=D8oIlefuvBfmqihhqjyaU4JKZTqn5qWEXEf6jPmU&date=${date}`)
       .then(response => {
         setApodData(response.data)
       })
@@ -33,7 +33,9 @@ function App() {
   }, [date])
 
   const App = styled.div`
+    min-height: 100vh;
     background-image: radial-gradient(#bf6215, #0c0f1e);
+    background-attachment: fixed;
   `
 
   const Container = styled.div`
